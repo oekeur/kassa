@@ -1,0 +1,97 @@
+
+.Inventory {
+	display: block;
+	flex: 1;
+	columns: 25em;
+	column-gap: 1em;
+
+	padding: 1em;
+	height: 100%;
+
+    color: white;
+    overflow: overlay;
+    box-sizing: border-box;
+}
+
+.Inventory .group {
+	display: flex;
+	flex-direction: column;
+    background-color: #074D34;
+    margin: 1em 0;
+
+	page-break-inside: avoid; /* Firefox is dumb */
+	break-inside: avoid;
+}
+.Inventory .group:first-child {
+	margin: 0;
+}
+
+.Inventory .group h3 {
+	border-bottom: 4px solid #003421;
+	padding: 0.2em;
+	margin: 0;
+	font-weight: bolder;
+}
+
+.Inventory .items {
+	list-style: none;
+	flex-flow: column;
+	display: flex;
+	flex: 1;
+	font-size: 1.5em;
+
+	padding: 0;
+	margin: 0;
+}
+
+.Inventory .items li {
+	display: flex;
+    text-align: start;
+    padding: 0.1em .5em;
+    border-bottom: 4px solid #003421;
+}
+.Inventory .items li.icon {
+	line-height: 2em;
+	font-size: 1.5em;
+}
+.Inventory .items li:hover {
+	background-color: #1C6A4F;
+}
+.Inventory .items li:last-child {
+	border: none;
+}
+.Inventory .items li p {
+	/*font-weight: bold;*/
+	/*font-size: 1.5em;*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.Inventory .items li * {
+	flex: 1;
+	padding: 0;
+	margin: 0;
+}
+
+.Inventory .items li .name {
+	max-width: 340px
+}
+.Inventory .items li .price {
+	/*text-align: right;*/
+	flex: 0 0 3em;
+}
+.Inventory .items li .price:before {
+	content: "€";
+}
+
+.Inventory .items li.icon .price {
+	flex: 0 0 100px;
+}
+.Inventory .items li icon {
+	flex: 0 0 2em;
+}
+.Inventory .items li icon:before {
+	margin: 0;
+	font-size: 1.5em;
+	color: white;
+}

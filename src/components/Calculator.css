@@ -1,0 +1,22 @@
+
+.Calculator {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #074D34;
+	font-size: 2em;
+}
+
+.Calculator p {
+	flex: 1 0 33%;
+	display: inline-block;
+    background-color: rgba(0,0,0,0.75);
+    background-clip: content-box;
+    line-height: 3em;
+    margin: 0;
+    border: 0.2em solid rgba(0,0,0,0.2);;
+    font-size: 1em;
+}
+.Calculator p:hover {
+	background-color: rgba(0,0,0,0.5);
+    border: 0.2em solid rgba(0,0,0,0.7);;
+}
