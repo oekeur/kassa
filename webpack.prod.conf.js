@@ -25,14 +25,18 @@ config.module.loaders = [
     loaders: ['babel']
   },
   {
-    test: /\.styl$/,
+    test: /\.css$/,
     exclude: /(node_modules)/,
-    loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!stylus-loader')
+    loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
   },
   {
     test: /\.(png|jpg)$/,
     exclude: /(node_modules)/,
     loader: 'url-loader?name=images/[name].[ext]&limit=8192'
+  },
+  {
+    test: /\.yml$/,
+    loader: 'yml'
   }
 ]
 
