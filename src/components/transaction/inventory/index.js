@@ -1,15 +1,17 @@
 import React from 'react';
+
+import cssModules from 'react-css-modules';
 import classnames from 'classnames';
 import _ from 'lodash';
 
-import './inventory.css';
+import style from './inventory.css';
 
-export default ({data}) => (
-	<div className="Inventory">
+export default cssModules(({data}) => (
+	<div styleName="inventory">
 	{ data.map((group, i) => (
-		<div key={i} className="group">
+		<div key={i} styleName="group">
 			<h3>{group.name}</h3>
-			<ul className={classnames("items")}>
+			<ul styleName={classnames("items")}>
 			{ group.items.map((item, i) => (
 				<li key={i} className={classnames({icon: item.icon})}>
 					{item.icon && (<icon className={`flaticon-${item.icon}`} />)}
@@ -21,4 +23,4 @@ export default ({data}) => (
 		</div>
 	))}
 	</div>
-)
+), style);

@@ -3,12 +3,8 @@ import cssModules from 'react-css-modules';
 import style from './styles.css';
 
 const Main = (props) => (
-  <div>
-    <section>
-      <div styleName="container">
-        {props.children}
-      </div>
-    </section>
+  <div styleName="container">
+    {props.children}
   </div>
 );
 

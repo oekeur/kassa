@@ -1,4 +1,5 @@
 var autoprefixer = require('autoprefixer');
+var precss = require('precss');
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -64,6 +65,6 @@ module.exports = {
     extensions: ['', '.js', '.jsx', '.json', '.css', '.png', '.jpg', '.jpeg', '.gif']
   },
   postcss: function () {
-    return [autoprefixer];
+    return [require('postcss-smart-import'), precss, autoprefixer];
   }
 };
