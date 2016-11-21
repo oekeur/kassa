@@ -1,32 +1,16 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
+import { Horizon, HorizonProvider } from 'react-hz';
 
-import {
-  UserInfo, Total,
-  Receipt, Calculator,
-  Payment
-} from './components';
+/* eslint-disable */
+const horizonInstance = Horizon({ host: '127.0.0.1:8181' });
+/* eslint-enable */
 
-import InventoryData from './inventory.json';
-import Inventory from './components/inventory';
+ReactDOM.render(
+  <HorizonProvider instance={horizonInstance}>
+    <Router routes={routes} history={browserHistory} />
+  </HorizonProvider>
+, document.getElementById('app'));
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-side">
-          <UserInfo />
-          <Total />
-          <Receipt />
-          <Calculator />
-          <Payment />
-        </div>
-        <div className="App-inventory">
-          <Inventory data={InventoryData} />
-        </div>
-      </div>
-    );
-  }
-}
-
-export default App;
