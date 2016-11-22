@@ -2,16 +2,12 @@
 @import "../../../colors.css";
 
 .inventory {
-	display: block;
-	flex: 1;
 	columns: 25em;
 	column-gap: 1em;
 
 	padding: 1em;
-	height: 100%;
 
     color: white;
-    overflow: overlay;
     box-sizing: border-box;
 
 }

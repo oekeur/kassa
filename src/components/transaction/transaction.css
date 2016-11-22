@@ -20,12 +20,12 @@ html, body, #root {
   padding: 20px;
   color: white;
   flex: 0.1 0.2 200px;
+  overflow: auto;
 }
 
 .inventory {
-  /*flex: 1;*/
-  /*overflow: overlay;*/
-  width: 800px;
+  flex: 1;
+  overflow: auto;
 }
 
 @keyframes App-logo-spin {
