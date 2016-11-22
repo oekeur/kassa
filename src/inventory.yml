@@ -30,6 +30,8 @@
     price: 8
 - name: Sterk
   items:
+  - name: Sterk anders
+    price: '...'
   - name: Baileys
     price: 2
   - name: Bombay gin
