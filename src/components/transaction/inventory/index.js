@@ -13,10 +13,10 @@ export default cssModules(({data}) => (
 			<h3>{group.name}</h3>
 			<ul styleName={classnames("items")}>
 			{ group.items.map((item, i) => (
-				<li key={i} className={classnames({icon: item.icon})}>
-					{item.icon && (<icon className={`flaticon-${item.icon}`} />)}
-					<p className="name">{item.name}</p>
-					<p className="price">{item.price}</p>
+				<li key={i} styleName={classnames({icon: item.icon})}>
+					{item.icon && (<icon className='material-icons'>{item.icon}</icon>)}
+					<p styleName="name">{item.name}</p>
+					<p styleName="price">{item.price}</p>
 				</li>
 			))}
 			</ul>

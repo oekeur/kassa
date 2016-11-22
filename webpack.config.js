@@ -1,5 +1,3 @@
-var autoprefixer = require('autoprefixer');
-var precss = require('precss');
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,7 +11,8 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/App.js'
+    "react-hot-loader/patch", // make sure the HMR package is included
+    './src/index.js'
   ],
   output: {
     pathinfo: true,
@@ -27,14 +26,14 @@ module.exports = {
       template: './index_template.ejs',
       inject: 'body'
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle: false,
       compress: {
         warnings: false
       }
     }),
-    new webpack.ContextReplacementPlugin(/bindings$/, /^$/)
+    new webpack.ContextReplacementPlugin(/bindings$/, /^$/),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   externals: ['bindings'],
   module: {
@@ -47,7 +46,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'style!css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss'
+        loader: 'style!css?sourceMap&modules&importLoaders=1!postcss'
       },
       {
         test: /\.(png|jpg)$/,
@@ -65,6 +64,10 @@ module.exports = {
     extensions: ['', '.js', '.jsx', '.json', '.css', '.png', '.jpg', '.jpeg', '.gif']
   },
   postcss: function () {
-    return [require('postcss-smart-import'), precss, autoprefixer];
+    return [
+      require('postcss-smart-import'),
+      require('precss'),
+      require('autoprefixer')
+    ];
   }
 };

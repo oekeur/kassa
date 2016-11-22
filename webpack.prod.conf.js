@@ -14,7 +14,7 @@ var cssExtractPlugin = new ExtractTextPlugin('styles.css');
 config.devtool = '';
 config.output.publicPath = '/';
 config.output.pathinfo = false;
-config.entry = ['./src/App.js'];
+config.entry = ['./src/index.js'];
 config.plugins.unshift(productionPlugin);
 config.plugins.push(cssExtractPlugin);
 

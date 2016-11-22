@@ -3,13 +3,13 @@
   items:
   - name: Jupiler vaas/fles
     price: 1.25
-    icon: beer-1
+    icon: class
   - name: Standaard fles
     price: 1.4
-    icon: beer
+    icon: done
   - name: Grolsch beugel
     price: 1.9
-    icon: beer
+    icon: done_all
 - name: Speciaal bier
   items:
   - name: Duvel

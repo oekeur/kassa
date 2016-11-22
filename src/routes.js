@@ -8,3 +8,4 @@ export default (
     <IndexRoute component={Transaction} />
   </Route>
 );
+

@@ -91,7 +91,8 @@
 		flex: 0 0 100px;
 	}
 	li icon {
-		flex: 0 0 2em;
+		flex: 0 0 1em;
+		font-size: 2em;
 	}
 	li icon:before {
 		margin: 0;

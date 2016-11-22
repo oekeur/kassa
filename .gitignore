@@ -15,3 +15,4 @@ build
 npm-debug.log
 kassa.sublime-project
 kassa.sublime-workspace
+dist/
