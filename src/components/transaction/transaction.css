@@ -11,7 +11,6 @@ html, body, #root {
   text-align: center;
   display: flex;
   flex-direction: row; 
-  height: 100%;
   flex: 1;
   background-color: $green-darker;
 }
@@ -20,13 +19,13 @@ html, body, #root {
   background-color: $green-darkest;
   padding: 20px;
   color: white;
-  height: 100%;
   flex: 0.1 0.2 200px;
 }
 
 .inventory {
-  flex: 1;
-  overflow: overlay;
+  /*flex: 1;*/
+  /*overflow: overlay;*/
+  width: 800px;
 }
 
 @keyframes App-logo-spin {

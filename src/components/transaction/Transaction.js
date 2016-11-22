@@ -10,7 +10,7 @@ import Receipt from './Receipt';
 import Calculator from './Calculator'; 
 import Payment from './Payment';
 
-import InventoryData from './inventory.yml';
+import InventoryData from '../../inventory.yml';
 import Inventory from './inventory';
 
 class Transaction extends Component {

@@ -11,7 +11,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    "react-hot-loader/patch", // make sure the HMR package is included
+    'react-hot-loader/patch',
     './src/index.js'
   ],
   output: {
@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loaders: ['react-hot-loader/webpack', 'babel']
+        loaders: ['babel']
       },
       {
         test: /\.css$/,
