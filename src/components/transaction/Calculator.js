@@ -16,7 +16,7 @@ class Calculator extends Component {
 			<div styleName="calculator">
 				<span styleName="amount">{current.amount}</span>
 				<div styleName="numberpad">
-				{ [1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map(num => (
+				{ [1, 4, 7, 2, 5, 8, 3, 6, 9, 0].map(num => (
 					<p key={num} onClick={() => this.updateBuffer(num)}>{num}</p>
 				))}
 				</div>
