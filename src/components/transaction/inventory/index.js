@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 import style from './inventory.css';
 
-export default cssModules(({data, onClick}) => (
+export default cssModules(({receipt, data, onClick}) => (
 	<div styleName="inventory">
 	{ data.map((group, i) => (
 		<div key={i} styleName="group">
@@ -15,7 +15,12 @@ export default cssModules(({data, onClick}) => (
 			{ _.sortBy(group.items, 'name').map((item, i) => (
 				<li
 					key={i}
-					styleName={classnames({icon: item.icon})}
+					className={classnames("click", {
+						used: _.some(receipt.items, ['name', item.name])
+					})}
+					styleName={classnames({
+						icon: item.icon
+					})}
 					onClick={() => onClick({...item})}
 				>
 					{item.icon && (<icon className='material-icons'>{item.icon}</icon>)}
@@ -23,6 +28,9 @@ export default cssModules(({data, onClick}) => (
 					<p styleName="price">
 						{_.isNumber(item.price) ? item.price.toFixed(2) : item.price}
 					</p>
+					{_.some(receipt.items, ['name', item.name]) && 
+						<span styleName='used'>{_.find(receipt.items, ['name', item.name]).amount}</span>
+					}
 				</li>
 			))}
 			</ul>

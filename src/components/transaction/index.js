@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import cssModules from 'react-css-modules';
-import style from './transaction.css';
+import style from './styles.css';
 import { connect } from 'react-hz';
 
 import UserInfo from './UserInfo';
@@ -12,6 +12,7 @@ import Payment from './Payment';
 
 import InventoryData from '../../inventory.yml';
 import Inventory from './inventory';
+
 
 class Transaction extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Transaction extends Component {
     }
 
     const items = _.reduce(
-      _.groupBy(receipt.items.concat(_item), 'name'),
+      _.groupBy([_item].concat(receipt.items), 'name'),
       (result, group) => 
         result.concat(
           _.merge({}, ...group, {
@@ -55,6 +56,15 @@ class Transaction extends Component {
       }
     })
   }
+  removeItem(index) {
+    const { receipt } = this.state;
+    this.setState({
+      receipt: {
+        ...receipt,
+        items: _.concat(_.slice(receipt.items, 0, index), _.slice(receipt.items, index + 1))
+      }
+    })
+  }
   render() {
     const { receipt } = this.state;
     return (
@@ -63,8 +73,15 @@ class Transaction extends Component {
           <UserInfo />
           <Calculator
             receipt={receipt}
-            onClick={
-              num => this.setState({
+            clearAmount={() =>
+              this.setState({
+                receipt: {
+                  ...receipt,
+                  current: {}
+                }
+              })}
+            updateAmount={num => 
+              this.setState({
                 receipt: {
                   ...receipt,
                   current: {
@@ -73,12 +90,13 @@ class Transaction extends Component {
                 }
               })
             }/>
-          <Receipt receipt={receipt}/>
+          <Receipt receipt={receipt} removeItem={(index) => this.removeItem(index)}/>
           <Total receipt={receipt}/>
           <Payment />
         </div>
         <div styleName="inventory">
           <Inventory
+            receipt={receipt}
             data={InventoryData}
             onClick={item => this.addItem(item)}
           />

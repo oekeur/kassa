@@ -1,7 +1,7 @@
 import React from 'react';
 
 import cssModules from 'react-css-modules';
-import style from './transaction.css';
+import style from './styles.css';
 
 
 const Payment = () => (

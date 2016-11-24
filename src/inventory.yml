@@ -49,7 +49,12 @@
   items:
   - name: Fles wijn
     price: 8
-
+- name: Overig
+  items:
+  - name: Toefje
+    price: 1
+  - name: Vloei
+    price: 1
 - name: Sterk
   items:
   - name: Sterk anders

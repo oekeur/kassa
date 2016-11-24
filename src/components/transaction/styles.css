@@ -1,0 +1,164 @@
+@import "../../colors.css";
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.transaction {
+  text-align: center;
+  display: flex;
+  flex-direction: row; 
+  flex: 1;
+  background-color: $green-darker;
+}
+
+.side {
+  background-color: $green-darkest;
+  /*padding: 20px;*/
+  color: white;
+  flex: 0.1 0.2 200px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+
+  .userinfo {
+    display: flex;
+    flex: 0 0 40px;
+    
+    h2, icon {
+      font-size: 30px;
+      line-height: 30px;
+      margin: 0;
+    }
+  }
+
+  .receipt {
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 1.5em;
+
+    overflow: auto;
+
+    li {
+      display: flex;
+
+      span {
+        padding: 0.3em;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .amount {
+
+        &:after {
+          font-size: 0.5em;
+          font-family: "sans-serif";
+          font-weight: 300;
+          font-style: italic;
+          content: '×';
+        }
+      }
+      .name {
+        flex: 1;
+      }
+      .total {}
+      .remove {
+        background-color: $red-standard;
+        line-height: 1em;
+        width: 1em;
+        font-size: 1.2em;
+        margin: 0.3em 0.1em;
+      }
+    }
+  }
+
+  .payment {
+    .viltje {
+
+    }
+    .cash {
+      
+    }
+  }
+
+  .calculator {
+    display: flex;
+    
+    flex-direction: column; 
+    background-color: $green-standard;
+    font-size: 2em;
+
+    .amount {
+      flex: 0 0 1.2em;
+      text-align: left;
+      padding: 0.2em;
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        padding: 0;
+        margin: 0;
+
+        &:after {
+          font-size: 0.5em;
+          font-family: "sans-serif";
+          font-weight: 300;
+          font-style: italic;
+          content: '×';
+
+        }
+        &:empty:after {
+          content: '';
+        }
+      }
+      icon {
+        background-color: $red-standard;
+        line-height: 1em;
+        width: 1em;
+        font-size: 1.2em;
+        margin: 0em 0.1em;
+        height: 1em;
+      }
+    }
+    .numberpad {
+      columns: 3;
+      column-gap: 0;
+
+      p {
+        padding: 0.1em;
+        margin: 0;
+
+        background-color: rgba(0,0,0,0.75);
+        box-sizing: border-box;
+        background-clip: content-box;
+        line-height: 2em;
+          
+        &:last-child {
+          column-span: all;
+        }
+      }
+      p:hover {
+        background-color: rgba(0,0,0,0.5);
+      }
+    }
+  }
+
+}
+
+.inventory {
+  flex: 1;
+  overflow: auto;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

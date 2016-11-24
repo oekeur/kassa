@@ -46,6 +46,14 @@
 
 	background-color: $green-lighter;
 
+
+	:global .used {
+		background-color: $orange-standard;
+		&:hover {
+			background-color: $orange-lightest;
+		}
+	}
+
 	li {
 		display: flex;
 		flex-direction: column;
@@ -56,6 +64,22 @@
 
 		page-break-inside: avoid; /* Firefox is dumb */
 		break-inside: avoid;
+
+		position: relative;
+
+		.used {
+			position: absolute;
+			background-color: $orange-lighter;
+			
+		    border-radius: 1em;
+		    top: 0;
+		    left: -0.1em;
+		    width: 1em;
+		    text-align: center;
+		    line-height: 1em;
+		    vertical-align: text-bottom;
+
+		}
 	}
 	li.icon, li:only-child {
 		line-height: 2em;
@@ -65,7 +89,7 @@
 	    column-span: all;
 	}
 	li:hover {
-		background-color: #1C6A4F;
+		background-color: $green-lightest;
 	}
 	li:last-child {
 		/*border: none;*/
