@@ -1,14 +1,18 @@
 import React from 'react';
 
-export default () => (
-	<ul>
-	{
-		[{price: 2.25, number: 2, name: "Bier"},
-		{price: 2.8, number: 2, name: "HJ Fles"},
-		{price: 16, number: 2, name: "Wijn", }
-		].map((item, i) => (
-			<li key={i}>{item.number} x {item.name} = {item.price}</li>
-		))
-	}
+import cssModules from 'react-css-modules';
+import style from './transaction.css';
+
+const Receipt = ({receipt}) => (
+	<ul styleName="receipt">
+	{receipt.items.map((item, i) => (
+		<li key={i}>
+			<span styleName="amount">{item.amount}</span>
+			<span styleName="name">{item.name}</span>
+			<span styleName="total">{(item.price * item.amount).toFixed(2)}</span>
+		</li>
+	))}
 	</ul>
 );
+
+export default cssModules(Receipt, style);

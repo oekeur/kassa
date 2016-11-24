@@ -1,4 +1,5 @@
 rethink:
+  restart: always
   hostname: rethink
   image: rethinkdb
   volumes:

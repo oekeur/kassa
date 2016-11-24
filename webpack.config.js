@@ -9,9 +9,10 @@ module.exports = {
     tls: 'empty'
   },
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
+    // 'webpack-dev-server/client?http://localhost:3000',
+    // 'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
     './src/index.js'
   ],
   output: {
@@ -46,7 +47,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'style!css?sourceMap&modules&importLoaders=1!postcss'
+        loader: 'style!css?sourceMap&modules&localIdentName=[name]-[local]---[hash:base64:5]&importLoaders=1!postcss'
       },
       {
         test: /\.(png|jpg)$/,

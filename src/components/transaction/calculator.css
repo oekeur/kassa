@@ -2,22 +2,39 @@
 
 .calculator {
 	display: flex;
-	flex-wrap: wrap;
+	
+	flex-direction: column;	
 	background-color: $green-standard;
 	font-size: 2em;
 
-	p {
-		flex: 1 0 27%;
-		display: inline-block;
-	    background-color: rgba(0,0,0,0.75);
-	    background-clip: content-box;
-	    line-height: 3em;
-	    margin: 0;
-	    border: 0.2em solid rgba(0,0,0,0.2);;
-	    font-size: 1em;
+	.amount {
+		flex: 0 0 1.2em;
 	}
-	p:hover {
-		background-color: rgba(0,0,0,0.5);
-	    border: 0.2em solid rgba(0,0,0,0.7);;
+	.numberpad {
+		columns: 3;
+		column-gap: 0;
+
+		p {
+			padding: 0.1em;
+			margin: 0;
+
+		    background-color: rgba(0,0,0,0.75);
+			box-sizing: border-box;
+		    background-clip: content-box;
+		    line-height: 2em;
+		    
+			&:last-child {
+				column-span: all;
+			}
+			/*flex: 1 0 27%;*/
+			/*display: inline-block;*/
+		    /*background-color: rgba(0,0,0,0.75);*/
+		    /*margin: 0;*/
+		    /*border: 0.2em solid rgba(0,0,0,0.2);;*/
+		    /*font-size: 1em;*/
+		}
+		p:hover {
+			background-color: rgba(0,0,0,0.5);
+		}
 	}
 }

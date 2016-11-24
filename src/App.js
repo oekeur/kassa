@@ -7,7 +7,7 @@ import WebFont from 'webfontloader'
 
 WebFont.load({
     google: {
-      families: ['Droid Sans', 'Droid Serif', 'Titillium Web', "Muli"]
+      families: ['Droid Sans', 'Droid Serif', 'Titillium Web', 'Exo 2', 'Montserrat']
     }
 })
 

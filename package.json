@@ -35,8 +35,10 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.16.1",
     "jsdom": "^9.4.1",
+    "morgan": "^1.7.0",
     "node-libs-browser": "^1.0.0",
     "postcss-loader": "^1.1.1",
+    "postcss-modules": "^0.5.2",
     "postcss-smart-import": "^0.5.1",
     "precss": "^1.4.0",
     "react-addons-test-utils": "^15.0.2",
@@ -48,6 +50,7 @@
     "utf-8-validate": "^1.2.1",
     "webpack": "~1.13.0",
     "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.2",
     "yml-loader": "^1.1.0"
   },
   "scripts": {

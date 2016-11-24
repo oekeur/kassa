@@ -1,15 +1,30 @@
 ---
 - name: Bier
   items:
-  - name: Jupiler vaas/fles
+  - name: Tap
     price: 1.25
     icon: class
-  - name: Standaard fles
+  - name: Fles
     price: 1.4
     icon: code
-  - name: Grolsch beugel
+  - name: Beugel
     price: 1.9
     icon: explore
+- name: Eettafel
+  items:
+  - name: Student en Lid
+    price: 4.5
+  - name: Student of Lid
+    price: 5.0
+  - name: Maaltijd
+    price: 6.5
+    icon: explore
+- name: Wijnavond
+  items: 
+  - name: Merlot
+    price: 3
+  - name: Pignot
+    price: 12
 - name: Speciaal bier
   items:
   - name: Duvel
@@ -24,10 +39,17 @@
     price: 1.5
   - name: Kleine fritz
     price: 1.2
+- name: Versnapering
+  items:
+  - name: Chips/snoep
+    price: 0.7
+  - name: Tosti
+    price: 1
 - name: Wijn
   items:
   - name: Fles wijn
     price: 8
+
 - name: Sterk
   items:
   - name: Sterk anders
@@ -62,9 +84,3 @@
     price: 2.2
   - name: Whiskey Jameson
     price: 2.3
-- name: Versnapering
-  items:
-  - name: Chips/snoep
-    price: 0.7
-  - name: Tosti
-    price: 1
