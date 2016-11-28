@@ -12,7 +12,7 @@ WebFont.load({
 })
 
 /* eslint-disable */
-const horizonInstance = Horizon({ host: '127.0.0.1:8181' });
+const horizonInstance = Horizon({ host: '192.168.1.133:8181' });
 /* eslint-enable */
 
 import './index.css'

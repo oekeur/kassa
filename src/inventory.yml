@@ -43,6 +43,8 @@
   items:
   - name: Chips/snoep
     price: 0.7
+  - name: Snoep
+    price: 0.05
   - name: Tosti
     price: 1
 - name: Wijn
@@ -51,8 +53,8 @@
     price: 8
 - name: Overig
   items:
-  - name: Toefje
-    price: 1
+  - name: Patroon
+    price: .5
   - name: Vloei
     price: 1
 - name: Sterk

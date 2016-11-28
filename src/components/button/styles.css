@@ -1,0 +1,19 @@
+
+
+.button {
+    display: inline-flex;
+    padding: 0.5em;
+    margin: .2em;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+
+    i, icon, label {
+      cursor: pointer;
+      padding: 0;
+      margin: 0 0.1em;
+    }
+    i, icon {
+      font-size: 1.5em;
+    }
+}

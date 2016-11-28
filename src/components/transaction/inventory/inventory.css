@@ -4,17 +4,15 @@
 .inventory {
 	columns: 25em;
 	column-gap: 1em;
+	flex: 1;
 
 	padding: 1em;
 
     color: white;
     box-sizing: border-box;
-
 }
 
 .group {
-	display: flex;
-	flex-direction: column;
     background-color: $green-standard;
     margin: 1em 0;
 
@@ -29,38 +27,44 @@
 		padding: 0.2em;
 		margin: 0;
 		font-weight: bolder;
-		background: #003421;
 		padding-top: 0.7em;
 	}
 }
 
 .items {
 	list-style: none;
-	columns: 2;
-	column-gap: 0.1em;
+
+	display: flex;
+	flex-flow: row wrap;
+
 	flex: 1;
 	font-size: 1.5em;
+
+	page-break-inside: avoid; /* Firefox is dumb */
+	break-inside: avoid;
 
 	padding: 0;
 	margin: 0;
 
-	background-color: $green-lighter;
-
-
 	:global .used {
-		background-color: $orange-standard;
+		background-color: $orange-lighter;
 		&:hover {
 			background-color: $orange-lightest;
 		}
 	}
 
 	li {
+		flex: 0 0 50%;
+		max-width: 50%;
+
 		display: flex;
 		flex-direction: column;
 	    text-align: start;
 	    padding: .2em;
-		background-color: $green-standard;
+		background-color: $green-lighter;
 		background-clip: content-box;
+
+		box-sizing: border-box;
 
 		page-break-inside: avoid; /* Firefox is dumb */
 		break-inside: avoid;
@@ -69,65 +73,74 @@
 
 		.used {
 			position: absolute;
-			background-color: $orange-lighter;
-			
-		    border-radius: 1em;
+			background-color: $orange-standard;
+			font-size: 0.7em;
+		    border-radius: 50%;
 		    top: 0;
 		    left: -0.1em;
-		    width: 1em;
+		    padding: 2px;
+		    line-height: 1.2em;
 		    text-align: center;
-		    line-height: 1em;
 		    vertical-align: text-bottom;
 
 		}
-	}
-	li.icon, li:only-child {
-		line-height: 2em;
-		font-size: 1.5em;
 
-		flex-direction: row;
-	    column-span: all;
-	}
-	li:hover {
-		background-color: $green-lightest;
-	}
-	li:last-child {
-		/*border: none;*/
-	}
-	li p {
-		/*font-weight: bold;*/
-		/*font-size: 1.5em;*/
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		padding: 0 0.5em;
-	}
-	li * {
-		flex: 1;
-		padding: 0;
-		margin: 0;
-	}
+		&.icon, &:only-child {
+			max-width: none;
+			flex: 1;
+			line-height: 2em;
+			font-size: 1.5em;
 
-	li .name {
-		max-width: 340px
-	}
-	li .price {
-		text-align: right;
-	}
-	li .price:before {
-		content: "€";
-	}
 
-	li.icon .price {
-		flex: 0 0 100px;
-	}
-	li icon {
-		flex: 0 0 1em;
-		font-size: 2em;
-	}
-	li icon:before {
-		margin: 0;
-		font-size: 1.5em;
-		color: white;
+			flex-direction: row;
+		    /*column-span: all;*/
+
+		    .price {
+				flex: 0 0 100px;
+			}
+		}
+
+		&:hover {
+			background-color: $green-lightest;
+		}
+		&:last-child {
+			/*border: none;*/
+		}
+
+
+		p {
+			/*font-weight: bold;*/
+			/*font-size: 1.5em;*/
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 0 0.5em;
+		}
+		* {
+			flex: 1;
+			padding: 0;
+			margin: 0;
+		}
+
+		.name {
+			max-width: 340px
+		}
+		.price {
+			text-align: right;
+			&:before {
+				content: "€";
+			}
+		}
+
+		icon {
+			flex: 0 0 1em;
+			font-size: 2em;
+
+			&:before {
+				margin: 0;
+				font-size: 1.5em;
+				color: white;
+			}
+		}
 	}
 }

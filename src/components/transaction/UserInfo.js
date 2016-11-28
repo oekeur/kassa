@@ -2,13 +2,14 @@ import React from 'react';
 
 import cssModules from 'react-css-modules';
 import style from './styles.css';
+import _ from 'lodash';
 
-const UserInfo = () => (
+const UserInfo = ({user}) => (
 	<div styleName='userinfo'>
 		<icon className="material-icons">
 			person
 		</icon>
-		<h2>Dexter</h2>
+		<h2>{_.upperFirst(user)}</h2>
 	</div>
 );
 

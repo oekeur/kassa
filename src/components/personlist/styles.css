@@ -1,0 +1,33 @@
+@import '../../colors.css';
+
+.persons {
+	display: flex;
+	padding: 1em;
+	margin: 0;
+
+	flex: 1;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+	overflow: auto;
+
+	background-color: $green-darker;
+	list-style: none;
+
+	li {
+		display: flex;
+		a {
+			flex: 1;
+			background-color: $green-standard;
+			font-size: 2em;
+			padding: 0.3em 0.3em 0.5em 0.3em;
+			margin: 0.1em;
+			color: white;
+			text-decoration: none;
+
+			&:hover {
+				background-color: $green-lighter;
+			}
+		}
+	}
+}

@@ -1,17 +1,17 @@
-$green-lighter: #003421;
+$green-standard: #003421;
+$green-lighter: #074D34;
 $green-lightest: #1C6A4F;
-$green-standard: #074D34;
 $green-darker: #001E13;
 $green-darkest: #000C08;
 
-$orange-lighter: #4D3600;
+$orange-standard: #4D3600;
+$orange-lighter: #73540A;
 $orange-lightest: #9E7C2A;
-$orange-standard: #73540A;
 $orange-darker: #2C1F00;
 $orange-darkest: #120D00;
 
-$red-lighter: #3E0023;
+$red-standard: #3E0023;
+$red-lighter: #5C0838;
 $red-lightest: #7F2156;
-$red-standard: #5C0838;
 $red-darker: #240014;
 $red-darkest: #0E0008;

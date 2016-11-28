@@ -3,27 +3,27 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   node: {
     fs: 'empty',
     tls: 'empty'
   },
   entry: [
-    // 'webpack-dev-server/client?http://localhost:3000',
-    // 'webpack/hot/only-dev-server',
+    'webpack-dev-server/client?http://192.168.1.133:3000',
+    'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
+    // 'webpack-hot-middleware/client',
     './src/index.js'
   ],
   output: {
     pathinfo: true,
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: 'http://localhost:3000/'
+    publicPath: 'http://192.168.1.133:3000/'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Horizon React Boilerplate',
+      title: 'Wolbodo kassa',
       template: './index_template.ejs',
       inject: 'body'
     }),

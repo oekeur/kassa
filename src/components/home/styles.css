@@ -1,0 +1,55 @@
+@import '../../colors.css';
+
+.home {
+	display: flex;
+	flex: 1;
+
+	color: white;
+
+	.recent {
+		font-size: 2em;
+		background-color: $green-darkest;
+		display: flex;
+		flex-direction: column;
+
+		list-style: none;
+		padding: 0.2em;
+		margin: 0;
+		overflow: hidden;
+
+		li {
+			display: flex;
+			background-color: $green-darker;
+			align-items: center;
+			margin-bottom: 0.2em;
+
+			a {
+				color: white;
+				text-decoration: none;
+				display: flex;
+				flex: 1;
+
+				&:hover {
+					background-color: $green-lighter;
+				}
+			}
+
+			p, i, icon {
+		        margin: .3em;
+		        padding: 0;
+		        line-height: 1em;
+			}
+			i, icon {
+			    margin-top: 0.5em;
+			}
+			.user {
+				flex: 1;
+			}
+			.total {
+				&:last-child {
+					margin-right: 0.8em;
+				}
+			}
+		}
+	}
+}
