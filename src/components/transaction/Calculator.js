@@ -1,21 +1,22 @@
 import React, {Component} from 'react';
 import cssModules from 'react-css-modules';
 import style from './styles.css';
+import _ from 'lodash';
 
-const Calculator = ({receipt: {current}, updateAmount, clearAmount}) => (
+const Calculator = ({amount, updateAmount, clearAmount}) => (
 	<div styleName="calculator">
 		<span styleName="amount">
-			<p>{current.amount}</p>
+			<p>{amount}</p>
 			<icon className="material-icons click" styleName="remove" onClick={() => clearAmount()}>
 				clear
 			</icon>
 
 		</span>
 		<div styleName="numberpad">
-		{ [1, 4, 7, 2, 5, 8, 3, 6, 9, 0].map(num => (
+		{ _.range(10).map(num => (
 			<p
 				key={num}
-				onClick={() => updateAmount(Number(`${current.amount || 0}${num}`))}
+				onClick={() => updateAmount(Number(`${amount || 0}${num}`))}
 				className="click"
 			>{num}</p>
 		))}

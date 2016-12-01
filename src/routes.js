@@ -8,9 +8,7 @@ import { Route, IndexRoute } from 'react-router';
 export default (
   <Route path="/" component={Main}>
     <IndexRoute component={Home} />
-    <Route path="transaction/:userid/(:transactionid/)" component={Transaction}>
-    	<Route path="onuser" component={SelectUser} />
-    </Route>
+    <Route path="transaction/:userid/(:transactionid/)" component={Transaction} />
   </Route>
 );
 

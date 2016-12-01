@@ -6,11 +6,9 @@
 	margin: 0;
 
 	flex: 1;
-	flex-wrap: wrap;
-	flex-direction: column;
+	flex-flow: column wrap;
 
 	overflow: auto;
-
 	background-color: $green-darker;
 	list-style: none;
 

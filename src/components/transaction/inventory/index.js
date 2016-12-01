@@ -4,7 +4,7 @@ import cssModules from 'react-css-modules';
 import classnames from 'classnames';
 import _ from 'lodash';
 
-import style from './inventory.css';
+import style from './styles.css';
 
 export default cssModules(({receipt, data, onClick}) => (
 	<div styleName="inventory">
@@ -12,7 +12,7 @@ export default cssModules(({receipt, data, onClick}) => (
 		<div key={i} styleName="group">
 			<h3>{group.name}</h3>
 			<ul styleName={classnames("items")}>
-			{ _.sortBy(group.items, 'name').map((item, i) => (
+			{ group.items.sort((a, b) => a.name.localeCompare(b.name, 'nl')).map((item, i) => (
 				<li
 					key={i}
 					className={classnames("click", {

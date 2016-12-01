@@ -42,7 +42,9 @@ const Home = ({receipts}) => (
 			);
 		})}
 		</ul>
-		<PersonList persons={members} />
+		<PersonList
+			persons={members}
+			make/>
 	</div>
 )
 

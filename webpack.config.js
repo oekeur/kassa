@@ -9,7 +9,7 @@ module.exports = {
     tls: 'empty'
   },
   entry: [
-    'webpack-dev-server/client?http://192.168.1.133:3000',
+    'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
     // 'webpack-hot-middleware/client',
@@ -19,7 +19,7 @@ module.exports = {
     pathinfo: true,
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: 'http://192.168.1.133:3000/'
+    publicPath: 'http://localhost:3000/'
   },
   plugins: [
     new HtmlWebpackPlugin({

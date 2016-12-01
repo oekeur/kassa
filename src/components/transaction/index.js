@@ -11,6 +11,7 @@ import Receipt from './Receipt';
 import Calculator from './Calculator'; 
 import Payment from './Payment';
 import Button from '../button';
+import SelectUser from '../selectuser';
 
 import InventoryData from '../../inventory.yml';
 import Inventory from './inventory';
@@ -25,9 +26,10 @@ class Transaction extends Component {
     this.state = {
       receipt: {
         user: userid,
+        selectuser: false,
         items: [],
-        current: {}
-      }
+      },
+      calculator: undefined
     }
   }
 
@@ -39,11 +41,11 @@ class Transaction extends Component {
   }
 
   addItem(item) {
-    const { receipt } = this.state;
+    const { receipt, calculator } = this.state;
 
     const _item = {
       ...item,
-      amount: _.get(receipt, 'current.amount', 1)
+      amount: calculator || 1
     }
 
     const items = _.reduce(
@@ -61,8 +63,8 @@ class Transaction extends Component {
         ...receipt,
         items,
         total: _.sumBy(items, item => item.amount * item.price).toFixed(2),
-        current: {}
-      }
+      },
+      calculator: undefined
     })
   }
   removeItem(index) {
@@ -78,8 +80,8 @@ class Transaction extends Component {
     })
   }
   render() {
-    const { receipt } = this.state;
-    const { routeParams, addReceipt, router } = this.props;
+    const { receipt, selectuser, calculator } = this.state;
+    const { routeParams, addReceipt, router, children } = this.props;
 
     return (
       <div styleName="transaction">
@@ -89,28 +91,24 @@ class Transaction extends Component {
             styleName="changeperson"
             label="Schrijf op iemand"
             icon='keyboard_return'
-            link={`${router.location.pathname}onuser`}
+            onClick={() => this.setState({
+              selectuser: true
+            })}
+            // link={`${router.location.pathname}onuser`}
           />
         </div>
         <div styleName="content">
           <div styleName="side">
             <Calculator
+              amount={calculator}
               receipt={receipt}
               clearAmount={() =>
                 this.setState({
-                  receipt: {
-                    ...receipt,
-                    current: {}
-                  }
+                  calculator: undefined
                 })}
               updateAmount={num => 
                 this.setState({
-                  receipt: {
-                    ...receipt,
-                    current: {
-                      amount: num
-                    }
-                  }
+                  calculator: num
                 })
               }/>
             <Receipt receipt={receipt} removeItem={(index) => this.removeItem(index)}/>
@@ -135,6 +133,7 @@ class Transaction extends Component {
             />
           </div>
         </div>
+        {selectuser && <SelectUser />}
       </div>
     );
   }
