@@ -14,7 +14,7 @@
 
 	li {
 		display: flex;
-		a {
+		a, .button {
 			flex: 1;
 			background-color: $green-standard;
 			font-size: 2em;

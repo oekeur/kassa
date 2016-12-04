@@ -81,12 +81,12 @@ class Transaction extends Component {
   }
   render() {
     const { receipt, selectuser, calculator } = this.state;
-    const { routeParams, addReceipt, router, children } = this.props;
+    const { addReceipt, router, children } = this.props;
 
     return (
       <div styleName="transaction">
         <div styleName="menu">
-          <UserInfo user={routeParams.userid}/>
+          <UserInfo receipt={receipt}/>
           <Button
             styleName="changeperson"
             label="Schrijf op iemand"
@@ -133,7 +133,12 @@ class Transaction extends Component {
             />
           </div>
         </div>
-        {selectuser && <SelectUser />}
+        {selectuser &&
+          <SelectUser
+            onCancel={() => this.setState({selectuser: false})}
+            onSelect={(user) => this.setState({selectuser: false, receipt:{...receipt, foruser: user}})}
+          />
+        }
       </div>
     );
   }

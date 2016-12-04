@@ -1,3 +1,4 @@
+@import "../../colors.css";
 
 
 .selectuser {
@@ -9,4 +10,18 @@
   /*left: -10%;*/
 
   display: flex;
+
+  .side {
+    display: flex;
+    flex-flow: column;
+    background-color: $green-darkest;
+    justify-content: flex-end;
+
+    .cancel {
+      background: $red-standard;
+      font-size: 2em;
+      display: inline-flex;
+      align-self: flex-end;
+    }
+  }
 }

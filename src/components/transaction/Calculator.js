@@ -7,13 +7,13 @@ const Calculator = ({amount, updateAmount, clearAmount}) => (
 	<div styleName="calculator">
 		<span styleName="amount">
 			<p>{amount}</p>
-			<icon className="material-icons click" styleName="remove" onClick={() => clearAmount()}>
+			{amount && <icon className="material-icons click" styleName="remove" onClick={() => clearAmount()}>
 				clear
-			</icon>
+			</icon>}
 
 		</span>
 		<div styleName="numberpad">
-		{ _.range(10).map(num => (
+		{ _.concat(_.range(1, 10), 0).map(num => (
 			<p
 				key={num}
 				onClick={() => updateAmount(Number(`${amount || 0}${num}`))}

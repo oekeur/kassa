@@ -4,13 +4,14 @@ import cssModules from 'react-css-modules';
 import style from './styles.css';
 import _ from 'lodash';
 
-const UserInfo = ({user}) => (
-	<div styleName='userinfo'>
-		<icon className="material-icons">
-			person
-		</icon>
-		<h2>{_.upperFirst(user)}</h2>
-	</div>
+import Button from '../button';
+
+const UserInfo = ({receipt:{user, foruser}}) => (
+  <Button
+    styleName='userinfo'
+    icon='person'
+    label={`${_.upperFirst(user)}${foruser ? ` -> ${foruser})` : ''}`}
+  />
 );
 
 export default cssModules(UserInfo, style);
