@@ -87,7 +87,7 @@
 
     &.icon, &:only-child {
       max-width: none;
-      flex: 1;
+      flex: 1 0 100%;
       line-height: 2em;
       font-size: 1.5em;
 

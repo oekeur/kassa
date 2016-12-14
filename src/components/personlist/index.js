@@ -7,7 +7,7 @@ import Button from '../button';
 
 const PersonList = ({persons, onSelect, ...rest}) => (
 	<ul styleName='persons' {...rest}>
-	{_.sortBy(persons, 'nick').map((person, i) => (
+	{persons.map((person, i) => (
 		<li key={i}>
       {onSelect ? (
         <Button styleName='button' label={person.nick} onClick={() => onSelect(person.nick)} />

@@ -5,6 +5,7 @@
   "dependencies": {
     "@horizon/client": "^2.0.0-beta-5",
     "classnames": "^2.2.5",
+    "koa": "^1.2.4",
     "lodash": "^4.17.2",
     "moment": "^2.17.0",
     "react": "^15.4.1",

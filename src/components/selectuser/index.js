@@ -7,12 +7,15 @@ import PersonList from '../personlist';
 import members from '../../members.yml';
 import Button from '../button'; 
 
-const SelectUser = ({onCancel, onSelect}) => (
+const SelectUser = ({title, onCancel, onSelect}) => (
 	<div styleName="selectuser">
-    <div styleName="side">
-      <Button styleName='cancel' icon='keyboard_backspace' label='Annuleren' onClick={onCancel} />
+    {title && <h1>{title}</h1>}
+    <div styleName='main'>
+      <div styleName="side">
+        <Button styleName='cancel' icon='keyboard_backspace' label='Annuleren' onClick={onCancel} />
+      </div>
+      <PersonList persons={members} onSelect={onSelect}/>
     </div>
-    <PersonList persons={members} onSelect={onSelect}/>
 	</div>
 );
 

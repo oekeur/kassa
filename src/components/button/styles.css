@@ -7,6 +7,8 @@
     cursor: pointer;
     color: white;
     text-decoration: none;
+    font-size: 2em;
+    align-items: center;
 
     i, icon, label {
       cursor: pointer;
@@ -14,6 +16,7 @@
       margin: 0 0.1em;
     }
     i, icon {
-      font-size: 1.5em;
+      font-size: 1.6em;
+      line-height: 0.6em;
     }
 }

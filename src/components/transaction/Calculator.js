@@ -6,7 +6,7 @@ import _ from 'lodash';
 const Calculator = ({amount, updateAmount, clearAmount}) => (
 	<div styleName="calculator">
 		<span styleName="amount">
-			<p>{amount}</p>
+			<p>{amount || 'Aantal'}</p>
 			{amount && <icon className="material-icons click" styleName="remove" onClick={() => clearAmount()}>
 				clear
 			</icon>}

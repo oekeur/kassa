@@ -4,6 +4,7 @@ import cssModules from 'react-css-modules';
 import {Link} from 'react-router';
 import style from './styles.css';
 import { connect } from 'react-hz';
+import classnames from 'classnames';
 
 import UserInfo from './UserInfo';
 import Total from './Total'; 
@@ -39,7 +40,12 @@ class Transaction extends Component {
       receipt
     })
   }
-
+  updateTotal(receipt) {
+    return {
+      ...receipt,
+      total: _.sumBy(receipt.items, item => item.amount * item.price).toFixed(2)
+    }
+  }
   addItem(item) {
     const { receipt, calculator } = this.state;
 
@@ -59,12 +65,32 @@ class Transaction extends Component {
       []
     )
     this.setState({
-      receipt: {
+      receipt: this.updateTotal({
         ...receipt,
-        items,
-        total: _.sumBy(items, item => item.amount * item.price).toFixed(2),
-      },
+        items
+      }),
       calculator: undefined
+    })
+  }
+  updateItemAmount(index) {
+    const { calculator, receipt } = this.state;
+
+    const item = receipt.items[index]
+
+    if (!calculator) return;
+
+    this.setState({
+      calculator: undefined,
+      receipt: this.updateTotal({
+        ...receipt,
+        items: _.concat(
+          _.slice(receipt.items, 0, index), {
+            ...item,
+            amount: calculator
+          },
+          _.slice(receipt.items, index + 1)
+        )
+      })
     })
   }
   removeItem(index) {
@@ -81,20 +107,17 @@ class Transaction extends Component {
   }
   render() {
     const { receipt, selectuser, calculator } = this.state;
-    const { addReceipt, router, children } = this.props;
+    const { addReceipt, router, children, params } = this.props;
 
     return (
       <div styleName="transaction">
         <div styleName="menu">
-          <UserInfo receipt={receipt}/>
-          <Button
+          <UserInfo
             styleName="changeperson"
-            label="Schrijf op iemand"
-            icon='keyboard_return'
+            receipt={receipt}
             onClick={() => this.setState({
               selectuser: true
             })}
-            // link={`${router.location.pathname}onuser`}
           />
         </div>
         <div styleName="content">
@@ -111,17 +134,24 @@ class Transaction extends Component {
                   calculator: num
                 })
               }/>
-            <Receipt receipt={receipt} removeItem={(index) => this.removeItem(index)}/>
-            <Total receipt={receipt}/>
-            <Payment onClick={(type) => {
-              addReceipt({
-                ...receipt,
-                total: _.sumBy(receipt.items, item => item.amount * item.price).toFixed(2),
-                type: type,
-                timestamp: new Date()
-              });
-              router.push({pathname: '/'})
-            }} />
+            <Receipt
+              styleName={classnames({hasamount:calculator})}
+              receipt={receipt}
+              removeItem={(index) => this.removeItem(index)}
+              onItemClick={(index) => this.updateItemAmount(index)}
+            />
+            <div className={classnames({active: calculator})} styleName='totalgroup'>
+              <Total receipt={receipt}/>
+              <Payment receipt={receipt} onClick={(type) => {
+                addReceipt({
+                  ...receipt,
+                  total: _.sumBy(receipt.items, item => item.amount * item.price).toFixed(2),
+                  type: type,
+                  timestamp: new Date()
+                });
+                router.push({pathname: '/'})
+              }} />
+            </div>
             <Button styleName="cancel" label="Annuleren" icon='keyboard_backspace' link='/'/>
           </div>
 
@@ -135,6 +165,7 @@ class Transaction extends Component {
         </div>
         {selectuser &&
           <SelectUser
+            title="Maak het bonnetje voor iemand anders"
             onCancel={() => this.setState({selectuser: false})}
             onSelect={(user) => this.setState({selectuser: false, receipt:{...receipt, foruser: user}})}
           />

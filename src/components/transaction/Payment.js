@@ -5,20 +5,24 @@ import style from './styles.css';
 
 import Button from '../button';
 
-const Payment = ({onClick}) => (
+const Payment = ({onClick, receipt}) => (
 	<div styleName="payment">
-		<Button
+		{ (!(receipt.user === 'extern')) && 
+			<Button
 			styleName="viltjes"
-			label="Viltjes"
+			label="Opschrijven"
 			icon='fa-won'
 			onClick={() => onClick('viltjes')}
-		/>
+		/>}
+		{
+			(receipt.key || receipt.user === 'extern' || receipt.user === 'dexter') && 
 		<Button
 			styleName="cash"
 			label="Cash"
 			icon='fa-money'
 			onClick={() => onClick('cash')}
 		/>
+		}
 	</div>
 );
 

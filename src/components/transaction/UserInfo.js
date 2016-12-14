@@ -6,11 +6,12 @@ import _ from 'lodash';
 
 import Button from '../button';
 
-const UserInfo = ({receipt:{user, foruser}}) => (
+const UserInfo = ({receipt:{user, foruser}, ...rest}) => (
   <Button
     styleName='userinfo'
     icon='person'
     label={`${_.upperFirst(user)}${foruser ? ` -> ${foruser})` : ''}`}
+    {...rest}
   />
 );
 

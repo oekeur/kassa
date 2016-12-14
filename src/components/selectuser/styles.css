@@ -10,11 +10,19 @@
   /*left: -10%;*/
 
   display: flex;
+  flex-flow: column;
+  background-color: $green-darkest;
+
+  .main {
+    display: flex;
+  }
+  h1 {
+    width: 100%;
+  }
 
   .side {
     display: flex;
     flex-flow: column;
-    background-color: $green-darkest;
     justify-content: flex-end;
 
     .cancel {
