@@ -16,3 +16,4 @@ npm-debug.log
 kassa.sublime-project
 kassa.sublime-workspace
 dist/
+src/members.yml
